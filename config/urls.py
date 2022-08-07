@@ -8,7 +8,7 @@ from baserow.core.registries import plugin_registry
 urlpatterns = (
     [
         re_path(r"^api/", include("baserow.api.urls", namespace="api")),
-        re_path(r"^t2/", include("baserow.t2.urls", namespace="t2")),
+        path(r"api/t2/", include("baserow.t2.urls", namespace="t2")),
         re_path(r"^_health/", include("health_check.urls")),
     ]
     + plugin_registry.urls
