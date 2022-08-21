@@ -282,10 +282,11 @@ class CrunchBaseFounder(APIView):
         filtered_founded_organizations_by_type = [item for item in all_founded_organizations if
                                                  'company_type' in item.keys() and item['company_type'] == 'for_profit']
         for i in filtered_founded_organizations_by_type:
-            company_funded_year = i['founded_on']
-            if company_funded_year['precision'] == 'year' and datetime.datetime.strptime(company_funded_year['value'],'%Y-%m-%d').date().year <= given_date.year:
+            company_founded_year = i.get('founded_on') or None
+            #compant with missing founded year or founded year <= date
+            if not company_founded_year or (company_founded_year['precision'] == 'year' and datetime.datetime.strptime(company_founded_year['value'],'%Y-%m-%d').date().year <= given_date.year):
                 filtered_response.append(i)
-            elif datetime.datetime.strptime(company_funded_year['value'],'%Y-%m-%d').date() <= given_date:
+            elif datetime.datetime.strptime(company_founded_year['value'],'%Y-%m-%d').date() <= given_date:
                 filtered_response.append(i)
         return filtered_response
 
