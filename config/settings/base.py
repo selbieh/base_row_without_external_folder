@@ -2,7 +2,9 @@ import datetime
 import os
 from decimal import Decimal
 from urllib.parse import urlparse, urljoin
+
 import environ
+
 env = environ.Env(
     # set casting, default value
     DEBUG=(bool, False)
@@ -16,7 +18,7 @@ from baserow.version import VERSION
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-DJANGO_SETTINGS_MODULE='settings.config.dev'
+DJANGO_SETTINGS_MODULE = 'settings.config.dev'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if "SECRET_KEY" in os.environ:
@@ -26,7 +28,7 @@ if "SECRET_KEY" in os.environ:
 DEBUG = os.getenv("BASEROW_BACKEND_DEBUG", "off") == "on"
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS += os.getenv("BASEROW_EXTRA_ALLOWED_HOSTS", "").split(",")
 
 INSTALLED_APPS = [
@@ -52,7 +54,7 @@ INSTALLED_APPS = [
     "baserow.ws",
     "baserow.contrib.database",
     "baserow.t2",
-    #"baserow_premium",
+    # "baserow_premium",
 ]
 
 ADDITIONAL_APPS = os.getenv("ADDITIONAL_APPS", None)
@@ -149,7 +151,7 @@ CHANNEL_LAYERS = {
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-DATABASE_URL=env.str("DATABASE_URL",None)
+DATABASE_URL = env.str("DATABASE_URL", None)
 if DATABASE_URL:
     DATABASES = {
         "default": dj_database_url.parse(os.getenv("DATABASE_URL"), conn_max_age=600)
@@ -158,11 +160,11 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
-            "NAME":env.str("DATABASE_NAME", "baserow"),
+            "NAME": env.str("DATABASE_NAME", "baserow"),
             "USER": env.str("DATABASE_USER", "baserow"),
             "PASSWORD": env.str("DATABASE_PASSWORD", "baserow"),
             "HOST": env.str("DATABASE_HOST", "db"),
-            "PORT":5432
+            "PORT": 5432
         }
     }
 GENERATED_MODEL_CACHE_NAME = "generated-models"
@@ -570,7 +572,7 @@ LOGGING = {
     "formatters": {
         "console": {
             "format": "%(levelname)s %(asctime)s %(name)s.%(funcName)s:%(lineno)s- %("
-            "message)s "
+                      "message)s "
         },
     },
     "handlers": {
@@ -626,7 +628,7 @@ else:
     # The new correctly named environment variable is set, so use that instead of
     # the old.
     BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION = (
-        BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION == "true"
+            BASEROW_TRIGGER_SYNC_TEMPLATES_AFTER_MIGRATION == "true"
     )
 
 BASEROW_SYNC_TEMPLATES_TIME_LIMIT = int(
@@ -637,5 +639,5 @@ APPEND_SLASH = False
 
 TESTS = False
 
-
-CB_KEY =env.str('CB_KEY')
+CB_KEY = env.str('CB_KEY')
+TRIBAL_GROUP_NAME = env.str('TRIBAL_GROUP_NAME', 'tribal group')

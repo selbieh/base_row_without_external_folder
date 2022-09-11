@@ -38,7 +38,7 @@ from baserow.core.user_files.exceptions import UserFileDoesNotExist
 from baserow.t2.errors import ERROR_CB_URL_NOT_EXIST
 from baserow.t2.exeptions import CbUrlDoesNotExist
 from baserow.t2.models.CrunchBaseLogs import CrunchBaseLogs
-from t2.serializers import CrunchBaseOrganizationSerializer, CrunchBaseFounderSerializer
+from t2.serializers.crunchbase import CrunchBaseOrganizationSerializer, CrunchBaseFounderSerializer
 
 
 class CrunchBaseOrganization(APIView):
