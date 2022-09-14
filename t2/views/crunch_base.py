@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 from django.db import transaction
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter, extend_schema
+from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -278,13 +279,15 @@ class CrunchBaseFounder(APIView):
 
     def filter_response(self, response, given_date):
         filtered_response=[]
-        all_founded_organizations = response['cards']['founded_organizations']
+        if isinstance(response,list):
+            raise serializers.ValidationError(detail=f'{response}')
+        all_founded_organizations = response.get('cards',{}).get('founded_organizations',[])
         filtered_founded_organizations_by_type = [item for item in all_founded_organizations if
                                                  'company_type' in item.keys() and item['company_type'] == 'for_profit']
         for i in filtered_founded_organizations_by_type:
             company_founded_year = i.get('founded_on') or None
-            #compant with missing founded year or founded year <= date
-            if not company_founded_year or (company_founded_year['precision'] == 'year' and datetime.datetime.strptime(company_founded_year['value'],'%Y-%m-%d').date().year <= given_date.year):
+            #company with missing founded year or founded year <= date
+            if not company_founded_year or (company_founded_year['precision'] == 'year' and datetime.datetime.strptime(company_founded_year['value'],'%Y-%m-%d').date().year < given_date.year):
                 filtered_response.append(i)
             elif datetime.datetime.strptime(company_founded_year['value'],'%Y-%m-%d').date() <= given_date:
                 filtered_response.append(i)
