@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e613512-1383-4d4c-b588-ec1f24598b9a" name="Changes" comment="" />
+    <list default="true" id="9e613512-1383-4d4c-b588-ec1f24598b9a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/t2/handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2/models/RowComments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2/recievers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2/row_metadata_types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2/serializers/row_comments.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/t2/views/row_comments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2/exeptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/t2/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/t2/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2/serializers/crunchbase.py" beforeDir="false" afterPath="$PROJECT_DIR$/t2/serializers/crunch_base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/t2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t2/views/crunch_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/t2/views/crunch_base.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2AfeV5yPW2Zf5bpyNszhAe9pmz2" />
   <component name="ProjectViewState">
@@ -17,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/elbieh/Desktop/baserow_be_new_version"
+    "last_opened_file_path": "/home/elbieh/Desktop/baserow_be_new_version/src"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -30,10 +46,22 @@
       <updated>1655405087894</updated>
       <workItem from="1655405088946" duration="75000" />
       <workItem from="1656593528723" duration="632000" />
+      <workItem from="1663668366360" duration="7000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

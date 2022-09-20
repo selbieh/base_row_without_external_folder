@@ -37,9 +37,9 @@ from baserow.core.action.registries import action_type_registry
 from baserow.core.exceptions import UserNotInGroup
 from baserow.core.user_files.exceptions import UserFileDoesNotExist
 from baserow.t2.errors import ERROR_CB_URL_NOT_EXIST
-from baserow.t2.exeptions import CbUrlDoesNotExist
+from baserow.t2.exceptions import CbUrlDoesNotExist
 from baserow.t2.models.CrunchBaseLogs import CrunchBaseLogs
-from t2.serializers.crunchbase import CrunchBaseOrganizationSerializer, CrunchBaseFounderSerializer
+from t2.serializers.crunch_base import CrunchBaseOrganizationSerializer, CrunchBaseFounderSerializer
 
 
 class CrunchBaseOrganization(APIView):
