@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    'django_filters',
     "corsheaders",
     "channels",
     "drf_spectacular",
@@ -242,6 +243,8 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
     "DEFAULT_SCHEMA_CLASS": "baserow.api.openapi.AutoSchema",
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10
 }
 
 PUBLIC_VIEW_AUTHORIZATION_HEADER = "Baserow-View-Authorization"

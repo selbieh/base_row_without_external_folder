@@ -12,7 +12,7 @@ class StaffUserControlSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        exclude =('last_login','is_superuser','is_staff','date_joined','groups')
+        exclude =('last_login','is_staff','date_joined','groups')
 
     def get_tribal_group(self):
         try:
